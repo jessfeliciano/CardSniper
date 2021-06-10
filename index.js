@@ -118,10 +118,9 @@ app.get("/search/*", function (req, res) {
   let id = pathname[1];
   console.log(pathname);
   let domaine = req.query.domaine ? req.query.domaine : "com";
-  console.log(domaine);
   let perpage = req.query.num ? req.query.num : 50;
   let url = "https://www.ebay." + domaine + "/sch/" + id + "?&_ipg=" + perpage + "&LH_BIN=1%2F&_ipg=50&rt=nc&LH_Sold=1&LH_Complete=1"; // this declaration of url works to grab sold listing search results
-  console.log(url);
+  console.log(`Test: ${url}`);
 
   axios
     .get(url, {

@@ -26,7 +26,6 @@ app.post('/user-search', (req, res) => {
     } else{
       res.status(500).json({message: err.message})
     }
-
 });
 
 // Webscraping routes
@@ -145,6 +144,7 @@ app.get("/search/*", function (req, res) {
   let domaine = req.query.domaine ? req.query.domaine : "com";
   let perpage = req.query.num ? req.query.num : 50;
   let url = "https://www.ebay." + domaine + "/sch/" + id + "?&_ipg=" + perpage + "&LH_BIN=1";
+  console.log(`Ebay Searched URL: ${url}`);
 
   axios
     .get(url, {
