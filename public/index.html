@@ -19,22 +19,12 @@
                 <h2>Search for your card here:</h2> 
             </div>
             <div class="col-50">           
-                <form action="/" method="POST">
-                    <input type="text" id="search-field" name="user[search]"></input>
+                <form action="/search/" method="GET">
+                    <input type="text" id="search-field" name="search"></input>
                     <button type="submit">Search</button>
                 </form> 
             </div>
-        </div>
-        <div class="row">
-            <div class="results-header">
-                <h3>Results:</h3>
-            </div>
-            <div class="return-results">
-
-            </div>
-        </div>
-        
-        
+        </div>        
         <script src="./js/main.js" async defer></script>
     </body>
 </html>

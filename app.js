@@ -8,24 +8,25 @@ const axios = require("axios");
 const cheerio = require("cheerio");
 const fakeUa = require("fake-useragent");
 
-//const bodyParser = require('body-parser');
-
 //https://apkcombo.com/fr-ma/apk-downloader/?device=&arch=&android=&q=com.candybomb.blast
 
 app.set("port", process.env.PORT || 3000);
 app.use(express.static('./public'))
 
-//app.use(bodyParser.urlencoded({ extended: true })); 
-// Parse URL-encoded bodies (as sent by HTML forms)
-app.use(express.urlencoded());
-
 // Parse JSON bodies (as sent by API clients)
 app.use(express.json());
 
 // POST route to gather user search information
-app.post('/', function(req, res) {
-  //res.send('You sent the name "' + req.body.name + '".');
-  console.log(req.user.search)
+app.post('/user-search', (req, res) => {
+    let search = req.body.search;
+    if(search){
+      res.status(200).send(`Trying to grab users search text ${search}`);
+      console.log(`Search text: ${search}`)
+      return search;
+    } else{
+      res.status(500).json({message: err.message})
+    }
+
 });
 
 // Webscraping routes
@@ -33,6 +34,7 @@ app.get("/id/*", (req, res) => {
   let pathname = req.path.substring(1).split("/");
   let id = pathname[1];
   console.log(req.query.domaine);
+  console.log(id);
   let domaine = req.query.domaine ? req.query.domaine : "com";
   let url = "https://www.ebay." + domaine + "/itm/" + id;
   console.log(url);
@@ -130,9 +132,16 @@ app.get("/id/*", (req, res) => {
       res.end("problem");
     });
 });
+
+// This is the route I mostly care about because this is a search by search term
 app.get("/search/*", function (req, res) {
   let pathname = req.path.substring(1).split("/");
-  let id = pathname[1];
+  let search = req.body.search;
+//  let id = `/search/$[search]`
+  console.log(`Search Term: ${search}`);
+ // let id = pathname[1];
+  let id = search;
+  console.log(`Pathname: ${id}`);
   let domaine = req.query.domaine ? req.query.domaine : "com";
   let perpage = req.query.num ? req.query.num : 50;
   let url = "https://www.ebay." + domaine + "/sch/" + id + "?&_ipg=" + perpage + "&LH_BIN=1";

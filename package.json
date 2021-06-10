@@ -4,15 +4,15 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "start": "node .", 
+    "start": "node .",
     "dev": "nodemon app.js",
-    "dev2" : "nodemon index.js" 
-
+    "dev2": "nodemon index.js"
   },
   "author": "Jessica Feliciano",
   "license": "ISC",
   "dependencies": {
     "axios": "^0.19.2",
+    "body-parser": "^1.19.0",
     "cheerio": "^1.0.0-rc.3",
     "express": "^4.17.1",
     "fake-useragent": "^1.0.1",
