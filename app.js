@@ -132,7 +132,7 @@ app.get("/search/*", function (req, res) {
       data.products = [];
       const $ = cheerio.load(response.data);
       let items = $("#srp-river-results > ul > li.s-item");
-      console.log(items);
+     // console.log(items);
 
       items = items.filter((i, elem) => {
         let text = $(elem)
