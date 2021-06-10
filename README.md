@@ -1,4 +1,4 @@
-# ebayscraper
+# Card Sniper
 This is a Web scraper for current Ebay listings
 
 Routes in this server were originaly written by someone else but I have taken this code and molded it for my own means. 
