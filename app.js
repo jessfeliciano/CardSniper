@@ -8,11 +8,12 @@ const axios = require("axios");
 const cheerio = require("cheerio");
 const fakeUa = require("fake-useragent");
 
-const bodyParser = require('body-parser');
+//const bodyParser = require('body-parser');
 
 //https://apkcombo.com/fr-ma/apk-downloader/?device=&arch=&android=&q=com.candybomb.blast
 
 app.set("port", process.env.PORT || 3000);
+app.use(express.static('./public'))
 
 //app.use(bodyParser.urlencoded({ extended: true })); 
 // Parse URL-encoded bodies (as sent by HTML forms)

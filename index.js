@@ -9,7 +9,7 @@ const fakeUa = require("fake-useragent");
 
 //https://apkcombo.com/fr-ma/apk-downloader/?device=&arch=&android=&q=com.candybomb.blast
 
-app.set("port", process.env.PORT || 3000);
+app.set("port", process.env.PORT || 3030);
 app.get("/id/*", (req, res) => {
   let pathname = req.path.substring(1).split("/");
   let id = pathname[1];
