@@ -1,4 +1,4 @@
-// This file will scrape current listing available on Ebay based on search
+// This file has routes that scrape current listing available on Ebay based on search
 // To get started, run file and navigate to "/search/pokemon"
 
 

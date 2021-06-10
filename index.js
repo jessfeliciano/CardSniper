@@ -1,5 +1,5 @@
-// This file attempts to scrape sold listings available on Ebay
-
+// This file is me trying to repurpose app.js to create routes that scrape the sold listings for ebay
+// I created a new separate file because I have the tendency to break things and want to keep at least one working version
 
 var express = require("express");
 var app = express();
