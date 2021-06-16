@@ -270,6 +270,8 @@ app.get("/search/*", function (req, res) {
     });
 });
 
+
+
 function getImages($) {
   let imgUrls = $(
     "#tab-panel-0-w0 > div.app-filmstrip__owl-carousel.owl-carousel.owl-loaded > div.owl-stage-outer > ul > li > figure > span.cc-image-component > img"
