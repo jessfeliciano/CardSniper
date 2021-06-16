@@ -134,11 +134,11 @@ app.get("/id/*", (req, res) => {
 
 // This is the route I mostly care about because this is a search by search term
 app.get("/search/*", function (req, res) {
+  let search = req.query.search;
+  console.log("Body test: " + search)
   let pathname = req.path.substring(1).split("/");
-  let search = req.body.search;
-//  let id = `/search/$[search]`
-  console.log(`Search Term: ${search}`);
- // let id = pathname[1];
+ // console.log(`Search Term: ${search}`);
+  //let id = pathname[1];
   let id = search;
   console.log(`Pathname: ${id}`);
   let domaine = req.query.domaine ? req.query.domaine : "com";
@@ -257,6 +257,7 @@ app.get("/search/*", function (req, res) {
         // div > div.s-item__info.clearfix > div.s-item__reviews > a > div > span
         data.products.push(itemData);
       });
+      console.log(data);
       res.set({
         "content-type": "application/json; charset=utf-8",
       });

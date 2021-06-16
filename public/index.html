@@ -1,8 +1,4 @@
 <!DOCTYPE html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
 <html>
     <head>
         <meta charset="utf-8">
@@ -11,6 +7,9 @@
         <meta name="Card Sniper" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="/public/css/styles.css" href="">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        
+
     </head>
     <body>
         <h1 style="text-align: center;">Card Sniper</h1>
@@ -19,12 +18,21 @@
                 <h2>Search for your card here:</h2> 
             </div>
             <div class="col-50">           
-                <form action="/search/" method="GET">
-                    <input type="text" id="search-field" name="search"></input>
+                    <input type="text" id="search" name="search"></input>
                     <button type="submit">Search</button>
-                </form> 
             </div>
         </div>        
         <script src="./js/main.js" async defer></script>
+        <script>
+            $(function(){
+                $('#search').on('keyup', function(e){
+                    console.log("jquery worked");
+                    var parameters = { search: $(this).val() };
+                    $.get( '/search/*',parameters, function(data) {
+                    $('#results').html(data);
+                    });
+                });
+             });
+        </script>
     </body>
 </html>

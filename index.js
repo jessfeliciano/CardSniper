@@ -114,6 +114,7 @@ app.get("/id/*", (req, res) => {
 
 // GET request for /search/ page
 app.get("/search/*", function (req, res) {
+  console.log("Body test: " + req.query.body)
   let pathname = req.path.substring(1).split("/");
   let id = pathname[1];
   console.log(pathname);
