@@ -21,15 +21,43 @@
                     <input type="text" id="search" name="search"></input>
                     <button type="submit">Search</button>
             </div>
-        </div>        
+        </div>  
+        <div class="row" style="display: flex; align-items: center; justify-content: center;">
+            <div class="col" id="image"></div>
+            <div class="col" id="results">
+    <!--            <div class="row" id="title"></div>
+                <div class="row" id="price"></div>            -->
+            </div>
+        </div>     
         <script src="./js/main.js" async defer></script>
         <script>
             $(function(){
                 $('#search').on('keyup', function(e){
-                    console.log("jquery worked");
                     var parameters = { search: $(this).val() };
                     $.get( '/search/*',parameters, function(data) {
-                    $('#results').html(data);
+                        //data = JSON.stringify(data);
+                        //console.log(data)
+                        console.log("Before for loop")
+                        for(var i = 0; i < data.length; i++){
+                            console.log(data);
+                            let title = data.products[i].title;
+                            let amount = data.products[i].price.amount;
+                            let currency = data.products[i].price.currency;
+                            let price = currency + amount;
+                            let imageURL = data.products[i].imageURL;
+
+                            let div = $('<div class="row">');
+                            div.append(title + "</div>");
+                            div.append(price + "</div>");
+                            $("#results").append(div);
+                    //       $('#results').html(data);
+                            console.log(imageURL)
+                            //$('#image').prepend('<img>',{src:imageURL})
+
+                            // $('#title').text(title)
+                            // $('#price').text(price)   
+                        }
+                    console.log("After for loop")
                     });
                 });
              });

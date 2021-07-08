@@ -257,7 +257,7 @@ app.get("/search/*", function (req, res) {
         // div > div.s-item__info.clearfix > div.s-item__reviews > a > div > span
         data.products.push(itemData);
       });
-      console.log(data);
+      // console.log(data);
       res.set({
         "content-type": "application/json; charset=utf-8",
       });
@@ -269,6 +269,8 @@ app.get("/search/*", function (req, res) {
       res.end("problem");
     });
 });
+
+
 
 
 
